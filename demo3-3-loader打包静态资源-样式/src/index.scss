@@ -1,0 +1,9 @@
+@import './avatar.css';
+
+
+body {
+    img {
+        opacity: .5;
+        transform: rotate(30deg);
+    }
+}

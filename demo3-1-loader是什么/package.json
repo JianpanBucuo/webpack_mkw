@@ -1,0 +1,21 @@
+{
+  "name": "webpack_2019_5_9_start_learning_mkw",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "private": true,
+  "scripts": {
+    "bundle": "webpack",
+    "build": "webpack ./src/index.js --mode=development",
+    "start": "webpack --config webpack.config.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "file-loader": "^3.0.1",
+    "webpack": "^4.29.6",
+    "webpack-cli": "^3.3.0"
+  }
+}
