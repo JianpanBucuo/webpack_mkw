@@ -21,9 +21,13 @@
              引入项目里用到的垫片         presets:[['@babel/preset-env',{
                                             useBuiltIns:'usage'  //不是把所有语法的转义加进来，是根据业务代码里用到了什么，就加什么
                                         }]]
-        
-        
-        
+        plugins 不会污染全局环境
+    4 @babel/plugin-transform-runtime @babel/runtime
+            npm install --save-dev @babel/plugin-transform-runtime @babel/runtime
+                options => "plugins": ["@babel/plugin-transform-runtime"]
+            npm install --save @babel/runtime-corejs2
+    在配置文件时， babel options里的配置项会非常的长，
+    所以创建一个 .babelrc 并把options里的内容放到 .babelrc里
 */
 import '@babel/polyfill';
 const arr = [
