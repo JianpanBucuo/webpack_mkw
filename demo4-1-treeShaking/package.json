@@ -1,12 +1,12 @@
 {
   "name": "webpack_2019_5_9_start_learning_mkw",
-  "sideEffects": "['@babel-polyfill','*.css']",
+  "sideEffects": "false",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "private": true,
   "scripts": {
-    "build": "webpack ./src/index.js --mode=development",
+    "build": "webpack ./src/index.js  --config webpack.config.js",
     "start": "webpack-dev-server",
     "test": "echo \"Error: no test specified\" && exit 1"
   },

@@ -4,7 +4,7 @@ const cleanWebpackPlugin = require('clean-webpack-plugin');
 module.exports = {
     // entry:'./src/index.js',
     mode: 'development', // production
-    devtool:'inline-source-map',
+    devtool:'eval-source-map', 
     entry:{
         // 规定打包的入口文件文件名
         main: './src/index.js'

@@ -4,8 +4,8 @@ const cleanWebpackPlugin = require('clean-webpack-plugin');
 const webpack = require('webpack');
 module.exports = {
     // entry:'./src/index.js',
-    mode: 'development', // production
-    devtool:'inline-source-map',
+    mode: 'production', // production
+    devtool:'cheap-module-source-map',
     entry:{
         // 规定打包的入口文件文件名
         main: './src/index.js'
