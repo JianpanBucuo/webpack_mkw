@@ -21,17 +21,3 @@
  $('body').append(dom);
  import './style.css';
 
-//  function getComponent () {
-//       return import(/* webpackChunkName:"lodash" */'lodash').then(({default: _}) => {
-//             var div = document.createElement('div');
-//             div.innerHTML = _.join(['a','v','c']);
-//             return div;
-//       })
-// }
- 
-// document.addEventListener('click', () => {
-//       var div = document.createElement('div');
-//       div.innerHTML = 'Jian';
-//       document.body.append(getComponent());
-
-// })

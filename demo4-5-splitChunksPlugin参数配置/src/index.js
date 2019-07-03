@@ -10,7 +10,7 @@
  
  
 var ele = document.createElement('div');
-ele.innerHTML = _.join(['a','b','v']);
+ele.innerHTML ='11111';
 document.body.appendChild(ele);
 
 function getComponent () {
@@ -20,6 +20,9 @@ function getComponent () {
             return div;
       })
 }
-getComponent().then(ele => {
-      document.body.appendChild(ele);
-})
+ele.onclick= function () {
+      getComponent().then(ele => {
+            document.body.appendChild(ele);
+      })
+}
+
