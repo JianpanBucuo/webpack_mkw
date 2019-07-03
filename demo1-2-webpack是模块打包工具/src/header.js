@@ -5,7 +5,5 @@ function  Header ()  {
     root.append(a);
 }
 // ES6
-// export default Header;
-
-
-module.exports = Header;
+export default Header;
+// module.exports = Header;
