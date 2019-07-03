@@ -6,7 +6,7 @@ webpack 默认配置文件名为 webpack.config.js
 
 在 package.json scripts里 定义 命令
 
-指定配置文件
+指定配置文件 使用webpack 打包
 webpack-cli的作用，使我们可以在命令行里使用命令打包 (webpack ./src/index.js --config webpack.config.js )
 "webpack --config webpack.config.js"  
 

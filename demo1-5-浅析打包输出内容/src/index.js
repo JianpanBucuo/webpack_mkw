@@ -4,5 +4,13 @@
 
 */
 import Header from './header.js';
+var a = document.getElementById('root');
+a.onclick = function () {
+    import('./header').then((
 
-new Header();
+        ) => {
+            new Header();
+        
+        })
+}
+

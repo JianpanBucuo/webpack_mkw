@@ -1,6 +1,50 @@
 /******/ (function(modules) { // webpackBootstrap
+/******/ 	// install a JSONP callback for chunk loading
+/******/ 	function webpackJsonpCallback(data) {
+/******/ 		var chunkIds = data[0];
+/******/ 		var moreModules = data[1];
+/******/
+/******/
+/******/ 		// add "moreModules" to the modules object,
+/******/ 		// then flag all "chunkIds" as loaded and fire callback
+/******/ 		var moduleId, chunkId, i = 0, resolves = [];
+/******/ 		for(;i < chunkIds.length; i++) {
+/******/ 			chunkId = chunkIds[i];
+/******/ 			if(installedChunks[chunkId]) {
+/******/ 				resolves.push(installedChunks[chunkId][0]);
+/******/ 			}
+/******/ 			installedChunks[chunkId] = 0;
+/******/ 		}
+/******/ 		for(moduleId in moreModules) {
+/******/ 			if(Object.prototype.hasOwnProperty.call(moreModules, moduleId)) {
+/******/ 				modules[moduleId] = moreModules[moduleId];
+/******/ 			}
+/******/ 		}
+/******/ 		if(parentJsonpFunction) parentJsonpFunction(data);
+/******/
+/******/ 		while(resolves.length) {
+/******/ 			resolves.shift()();
+/******/ 		}
+/******/
+/******/ 	};
+/******/
+/******/
 /******/ 	// The module cache
 /******/ 	var installedModules = {};
+/******/
+/******/ 	// object to store loaded and loading chunks
+/******/ 	// undefined = chunk not loaded, null = chunk preloaded/prefetched
+/******/ 	// Promise = chunk loading, 0 = chunk loaded
+/******/ 	var installedChunks = {
+/******/ 		"main": 0
+/******/ 	};
+/******/
+/******/
+/******/
+/******/ 	// script path function
+/******/ 	function jsonpScriptSrc(chunkId) {
+/******/ 		return __webpack_require__.p + "" + chunkId + ".bundle.js"
+/******/ 	}
 /******/
 /******/ 	// The require function
 /******/ 	function __webpack_require__(moduleId) {
@@ -26,6 +70,64 @@
 /******/ 		return module.exports;
 /******/ 	}
 /******/
+/******/ 	// This file contains only the entry chunk.
+/******/ 	// The chunk loading function for additional chunks
+/******/ 	__webpack_require__.e = function requireEnsure(chunkId) {
+/******/ 		var promises = [];
+/******/
+/******/
+/******/ 		// JSONP chunk loading for javascript
+/******/
+/******/ 		var installedChunkData = installedChunks[chunkId];
+/******/ 		if(installedChunkData !== 0) { // 0 means "already installed".
+/******/
+/******/ 			// a Promise means "currently loading".
+/******/ 			if(installedChunkData) {
+/******/ 				promises.push(installedChunkData[2]);
+/******/ 			} else {
+/******/ 				// setup Promise in chunk cache
+/******/ 				var promise = new Promise(function(resolve, reject) {
+/******/ 					installedChunkData = installedChunks[chunkId] = [resolve, reject];
+/******/ 				});
+/******/ 				promises.push(installedChunkData[2] = promise);
+/******/
+/******/ 				// start chunk loading
+/******/ 				var script = document.createElement('script');
+/******/ 				var onScriptComplete;
+/******/
+/******/ 				script.charset = 'utf-8';
+/******/ 				script.timeout = 120;
+/******/ 				if (__webpack_require__.nc) {
+/******/ 					script.setAttribute("nonce", __webpack_require__.nc);
+/******/ 				}
+/******/ 				script.src = jsonpScriptSrc(chunkId);
+/******/
+/******/ 				onScriptComplete = function (event) {
+/******/ 					// avoid mem leaks in IE.
+/******/ 					script.onerror = script.onload = null;
+/******/ 					clearTimeout(timeout);
+/******/ 					var chunk = installedChunks[chunkId];
+/******/ 					if(chunk !== 0) {
+/******/ 						if(chunk) {
+/******/ 							var errorType = event && (event.type === 'load' ? 'missing' : event.type);
+/******/ 							var realSrc = event && event.target && event.target.src;
+/******/ 							var error = new Error('Loading chunk ' + chunkId + ' failed.\n(' + errorType + ': ' + realSrc + ')');
+/******/ 							error.type = errorType;
+/******/ 							error.request = realSrc;
+/******/ 							chunk[1](error);
+/******/ 						}
+/******/ 						installedChunks[chunkId] = undefined;
+/******/ 					}
+/******/ 				};
+/******/ 				var timeout = setTimeout(function(){
+/******/ 					onScriptComplete({ type: 'timeout', target: script });
+/******/ 				}, 120000);
+/******/ 				script.onerror = script.onload = onScriptComplete;
+/******/ 				document.head.appendChild(script);
+/******/ 			}
+/******/ 		}
+/******/ 		return Promise.all(promises);
+/******/ 	};
 /******/
 /******/ 	// expose the modules object (__webpack_modules__)
 /******/ 	__webpack_require__.m = modules;
@@ -79,6 +181,16 @@
 /******/ 	// __webpack_public_path__
 /******/ 	__webpack_require__.p = "";
 /******/
+/******/ 	// on error function for async loading
+/******/ 	__webpack_require__.oe = function(err) { console.error(err); throw err; };
+/******/
+/******/ 	var jsonpArray = window["webpackJsonp"] = window["webpackJsonp"] || [];
+/******/ 	var oldJsonpFunction = jsonpArray.push.bind(jsonpArray);
+/******/ 	jsonpArray.push = webpackJsonpCallback;
+/******/ 	jsonpArray = jsonpArray.slice();
+/******/ 	for(var i = 0; i < jsonpArray.length; i++) webpackJsonpCallback(jsonpArray[i]);
+/******/ 	var parentJsonpFunction = oldJsonpFunction;
+/******/
 /******/
 /******/ 	// Load entry module and return exports
 /******/ 	return __webpack_require__(__webpack_require__.s = "./src/index.js");
@@ -97,27 +209,14 @@ eval("module.exports = __webpack_require__.p + \"08673fae23d1fab529d08248d7221c1
 
 /***/ }),
 
-/***/ "./src/header.js":
-/*!***********************!*\
-  !*** ./src/header.js ***!
-  \***********************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-eval("__webpack_require__.r(__webpack_exports__);\nfunction  Header ()  {\r\n    let a = document.createElement('div');\r\n    a.innerHTML = 'header';\r\n    let root = document.getElementById('root');\r\n    root.append(a);\r\n}\r\n// ES6\r\n/* harmony default export */ __webpack_exports__[\"default\"] = (Header);\r\n\r\n\n\n//# sourceURL=webpack:///./src/header.js?");
-
-/***/ }),
-
 /***/ "./src/index.js":
 /*!**********************!*\
   !*** ./src/index.js ***!
   \**********************/
-/*! no exports provided */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
 
-"use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _header_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./header.js */ \"./src/header.js\");\n/* harmony import */ var _1_jpg__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./1.jpg */ \"./src/1.jpg\");\n/* harmony import */ var _1_jpg__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_1_jpg__WEBPACK_IMPORTED_MODULE_1__);\n// loader 是什么\r\n\r\n/* \r\n 1.webpack 是什么？\r\n 2. 模块是什么?\r\n 3. webpack 配置文件是什么？\r\n\r\n Loader 是什么？ \r\n  webpack可以打包 任何文件， 但默认打包的是 js文件， 所以需要在 配置文件中告诉 webpack 打包的是 其他类型的文件\r\n  当打包一个图片时，loader将 图片移动到打包目录中，并将 相对于 打包目录的路径返回给变量当中\r\n*/\r\n\r\n\r\n\r\nvar avartar = __webpack_require__(/*! ./1.jpg */ \"./src/1.jpg\");\r\n\r\nconsole.log(avartar);\r\n\r\nnew _header_js__WEBPACK_IMPORTED_MODULE_0__[\"default\"]();\r\n\r\nvar img = new Image();\r\nimg.src = _1_jpg__WEBPACK_IMPORTED_MODULE_1___default.a;\r\nconsole.log(img);\r\n\r\nvar root = document.getElementById('root');\r\nroot.append(img);\r\n\n\n//# sourceURL=webpack:///./src/index.js?");
+eval("// loader 是什么\r\n\r\n/* \r\n 1.webpack 是什么？\r\n 2. 模块是什么?\r\n 3. webpack 配置文件是什么？\r\n\r\n Loader 是什么？ \r\n  webpack可以打包 任何文件， 但默认打包的是 js文件， 所以需要在 配置文件中告诉 webpack 打包的是 其他类型的文件\r\n  当打包一个图片时，loader将 图片移动到打包目录中，并将 相对于 打包目录的路径返回给变量当中\r\n*/\r\n// import Header from './header.js';\r\n// import Avatar from './1.jpg';\r\n\r\nvar avartar = __webpack_require__(/*! ./1.jpg */ \"./src/1.jpg\");\r\n\r\nconsole.log(avartar);\r\n\r\n\r\nvar img = new Image();\r\nimg.src = avartar;\r\n \r\n\r\nvar root = document.getElementById('root');\r\nroot.append(img);\r\nroot.onclick = function () {\r\n  __webpack_require__.e(/*! import() */ 0).then(__webpack_require__.bind(null, /*! ./header */ \"./src/header.js\")).then(({default: Header}) => {\r\n        // console.log(r);\r\n        new Header();\r\n  })\r\n}\n\n//# sourceURL=webpack:///./src/index.js?");
 
 /***/ })
 
