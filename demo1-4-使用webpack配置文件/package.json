@@ -5,11 +5,10 @@
   "main": "index.js",
   "private": true,
   "scripts": {
-    "bundle":"webpack",
+    "bundle": "webpack",
     "build": "webpack ./src/index.js --mode=development",
     "start": "webpack --config webpack.config.js",
     "test": "echo \"Error: no test specified\" && exit 1"
-
   },
   "keywords": [],
   "author": "",
