@@ -22,7 +22,8 @@ module.exports = {
                         // placeholder
                         name:'[name]_[hash].[ext]',
                         outputPath:'images/',
-                        limit:204800
+                        limit:2048,
+                        // publicPath: 'https://www.baidu.com/',
                     }
                 }
             }

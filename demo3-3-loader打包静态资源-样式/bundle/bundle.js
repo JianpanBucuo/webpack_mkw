@@ -153,18 +153,6 @@ eval("module.exports = \"data:image/jpeg;base64,/9j/4AAQSkZJRgABAQEBLAEsAAD/2wBD
 
 /***/ }),
 
-/***/ "./src/header.js":
-/*!***********************!*\
-  !*** ./src/header.js ***!
-  \***********************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-eval("__webpack_require__.r(__webpack_exports__);\nfunction  Header ()  {\r\n    let a = document.createElement('div');\r\n    a.innerHTML = 'header';\r\n    let root = document.getElementById('root');\r\n    root.append(a);\r\n}\r\n// ES6\r\n/* harmony default export */ __webpack_exports__[\"default\"] = (Header);\r\n\r\n\n\n//# sourceURL=webpack:///./src/header.js?");
-
-/***/ }),
-
 /***/ "./src/index.js":
 /*!**********************!*\
   !*** ./src/index.js ***!
@@ -173,7 +161,7 @@ eval("__webpack_require__.r(__webpack_exports__);\nfunction  Header ()  {\r\n   
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _header_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./header.js */ \"./src/header.js\");\n/* harmony import */ var _index_scss__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./index.scss */ \"./src/index.scss\");\n/* harmony import */ var _index_scss__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_index_scss__WEBPACK_IMPORTED_MODULE_1__);\n// loader 打包静态资源\r\n\r\n/* \r\n\r\ncss-loader会分析出 几个css文件之间的关系， 并合并成一段 css\r\nstyle-loader 会将 css-loader 分析出的内容挂载到 head标签里\r\n\r\nloader的执行顺序，从下到上， 从右到左\r\n\r\npostcss-loader 创建一个 postcss.config.js 在里面配置 autoprefixer ，从而在样式里加上 css3 兼容格式\r\n\r\ncss打包模块化: css只在这个模块里 有效，避免和其他模块起冲突\r\n*/\r\n\r\n\r\nvar avartar = __webpack_require__(/*! ./1.jpg */ \"./src/1.jpg\");\r\n// import createAvartar from './createAvartar';\r\n\r\nconsole.log(avartar);\r\n\r\nnew _header_js__WEBPACK_IMPORTED_MODULE_0__[\"default\"]();\r\n\r\nvar img = new Image();\r\nimg.src = avartar;\r\nimg.classList.add('avartar'); \r\nvar root = document.getElementById('root');\r\nroot.append(img);\r\n// new createAvartar();\r\n\r\n\n\n//# sourceURL=webpack:///./src/index.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _index_scss__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./index.scss */ \"./src/index.scss\");\n/* harmony import */ var _index_scss__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_index_scss__WEBPACK_IMPORTED_MODULE_0__);\n// loader 打包静态资源\r\n\r\n/* \r\ncss-loader会分析出 几个css文件之间的关系， 并合并成一段 css\r\nstyle-loader 会将 css-loader 分析出的内容挂载到 head标签里\r\nnode-sass sass-loader使项目支持 sass\r\nloader的执行顺序，从下到上， 从右到左\r\n\r\npostcss-loader 创建一个 postcss.config.js 在里面配置 autoprefixer [install --save-dev]，从而在样式里加上 css3 兼容格式\r\n\r\ncss打包模块化: css只在这个模块里 有效，避免和其他模块起冲突\r\n*/\r\n \r\n\r\nvar avartar = __webpack_require__(/*! ./1.jpg */ \"./src/1.jpg\");\r\n \r\n\r\nconsole.log(avartar);\r\n\r\n \r\n\r\nvar img = new Image();\r\nimg.src = avartar;\r\nimg.classList.add('avartar'); \r\nvar root = document.getElementById('root');\r\nroot.append(img);\r\n// new createAvartar();\r\n\r\n\n\n//# sourceURL=webpack:///./src/index.js?");
 
 /***/ }),
 

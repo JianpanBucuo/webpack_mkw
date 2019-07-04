@@ -34,8 +34,9 @@ module.exports = {
                         importLoaders:2, //保证 在js里面 引入的scss 和 css文件里引入的 scss文件 都会走 sass-loader postcss-loader
                         //  modules: true //开启css模块化打包
                     }
-                },'sass-loader',"postcss-loader"] //加 css3 前缀
-            }
+                },'sass-loader','postcss-loader' ] //加 css3 前缀
+            },
+        
         ]
     } 
  }
