@@ -1,10 +1,10 @@
-@import './avatar.scss';
+ @import './avatar.scss';
+ @import './font/iconfont.css';
 
-
-body {
+ 
     img {
 
         width:150px;
         height: 150px;
     }
-}
+  

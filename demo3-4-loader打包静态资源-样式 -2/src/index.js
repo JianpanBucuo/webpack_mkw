@@ -7,15 +7,19 @@ css-loader
 
 */
 
-import style from './index.scss';
+import  './index.css';
+// import style from './index.css';
 var avartar = require('./1.jpg');
 import createAvartar from './createAvartar';
 
 var img = new Image();
 img.src = avartar;
-img.classList.add(style.avartar); 
+// img.classList.add(style.avartar); 
+img.classList.add( 'avartar'); 
 var root = document.getElementById('root');
 root.append(img);
+
  
+root.innerHTML = '<div class="iconbianji iconfont">112345666</div>'
 
 createAvartar();

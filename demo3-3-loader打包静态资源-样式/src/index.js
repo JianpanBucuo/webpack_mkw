@@ -13,11 +13,6 @@ css打包模块化: css只在这个模块里 有效，避免和其他模块起�
  
 import './index.scss';
 var avartar = require('./1.jpg');
- 
-
-console.log(avartar);
-
- 
 
 var img = new Image();
 img.src = avartar;
