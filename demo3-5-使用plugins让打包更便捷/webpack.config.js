@@ -21,9 +21,9 @@ module.exports = {
                     loader:'url-loader',
                     options:{
                         // placeholder
-                        name:'[name]_[hash].[ext]',
-                        outputPath:'images/',
-                        limit:100
+                        name: '[name]_[hash].[ext]',
+                        outputPath: 'images/',
+                        limit: 5000
                     }
                 }
             },
@@ -53,11 +53,8 @@ module.exports = {
     },
     plugins:[
         new htmlWebpackPlugin({
-            template: './src/index.html'
+            template: './src/index.html' //模板文件
         }),
         new cleanWebpackPlugin()　　
     ]　　　　　　　
-     
-        
-     
  }
