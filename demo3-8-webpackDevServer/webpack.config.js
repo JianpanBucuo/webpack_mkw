@@ -14,7 +14,7 @@ module.exports = {
         // 通过设置占位符来配置 根据entry设置的 输出文件的名字 
         filename:'js/[name].js', 
         path: path.resolve(__dirname, 'bundle'),
-        publicPath:'/' // 在生成的 index.html引入的资源面前加上根路径
+        publicPath:'' // 在生成的 index.html引入的资源面前加上根路径
     },
     devServer:{
         contentBase:'./bundle',
