@@ -5,7 +5,7 @@ const webpack = require('webpack');
 module.exports = {
     // entry:'./src/index.js',
     mode: 'development', // production
-    devtool:'inline-source-map',
+    devtool:'none',//inline-source-map
     entry:{
         // 规定打包的入口文件文件名
         main: './src/index.js'
@@ -15,7 +15,7 @@ module.exports = {
         // 通过设置占位符来配置 根据entry设置的 输出文件的名字 
         filename:'js/[name].js', 
         path: path.resolve(__dirname, 'bundle'),
-        publicPath:'/' // 在生成的 index.html引入的资源面前加上根路径
+        // publicPath:'/' // 在生成的 index.html引入的资源面前加上根路径
     },
     devServer:{
         contentBase:'./bundle',
@@ -69,15 +69,10 @@ module.exports = {
                     exclude: /node_modules/, 
                     loader: 'babel-loader',
                     options:{
-                        //  presets:['@babel/preset-env']
+                        // presets:['@babel/preset-env']
                         presets:[['@babel/preset-env',{
                             useBuiltIns:'usage',  //不是把所有语法的转义加进来，是根据业务代码里用到了什么，就加什么
-                            // targets: { //查看转义范围
-                            //     edge: "17",
-                            //     firefox: "60",
-                            //     chrome: "67",
-                            //     safari: "11.1",
-                            //   }                       
+              
                         }]]
                     } 
             },
