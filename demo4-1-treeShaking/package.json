@@ -1,6 +1,6 @@
 {
   "name": "webpack_2019_5_9_start_learning_mkw",
-  "sideEffects": "false",
+  "sideEffect": ["*.css"],
   "version": "1.0.0",
   "description": "",
   "main": "index.js",

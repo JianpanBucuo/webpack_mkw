@@ -11,3 +11,5 @@ npm install --save-dev @babel/plugin-transform-runtime
 npm install --save @babel/runtime
 
 因为 配置 babel时 配置项很多， 可以将配置项 单独写到 .babelrc文件当中。
+
+在 presets 里配置 useBuiltIns: usage 之后 ， 可以不用引入 babel-polyfill 他会自动帮你引入
