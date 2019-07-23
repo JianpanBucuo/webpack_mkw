@@ -6,7 +6,7 @@
   "main": "index.js",
   "private": true,
   "scripts": {
-    "develop": "webpack ./src/index.js  --config ./build/webpack.dev.js",
+    "develop": "webpack   --config ./build/webpack.dev.js",
     "production": "webpack --config ./build/webpack.product.js",
     "start": "webpack-dev-server",
     "test": "echo \"Error: no test specified\" && exit 1"
