@@ -61,3 +61,12 @@ interface SquareConfig2 {
 
 //函数类型
 // 它就像是一个只有参数列表和返回值类型的函数定义。参数列表里的每个参数都需要名字和类型
+
+interface SearchFunc {
+    (source: string, subString: string): boolean;
+}
+let mySearch: SearchFunc;
+mySearch = function (source: string, subString: string) {
+    let result = source.search(subString);
+    return  result > -1;
+}
