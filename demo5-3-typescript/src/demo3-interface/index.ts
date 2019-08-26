@@ -70,3 +70,25 @@ mySearch = function (source: string, subString: string) {
     let result = source.search(subString);
     return  result > -1;
 }
+
+
+// 可索引类型
+
+interface  StringArray{
+    [index: number]: string
+}
+let myArray : StringArray;
+myArray = ['123','333'];
+
+// 类类型
+//  明确的强制一个类去符合某种契约
+
+interface ClockInterface {
+    currentTime: Date
+}
+
+class Clock implements ClockInterface {
+    currentTime: Date;
+
+}
+console.log( new Clock());

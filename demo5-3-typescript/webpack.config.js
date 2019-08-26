@@ -1,7 +1,7 @@
 const path = require('path');
 const webpack = require('webpack');
 module.exports = {
-    entry: "./src/interface/index.ts",
+    entry: "./src/demo4-class/index.ts",
     module:{
         rules:[
             {
