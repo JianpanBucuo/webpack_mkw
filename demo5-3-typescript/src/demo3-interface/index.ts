@@ -36,12 +36,12 @@ function createSquare(config: SquareConfig) : { color: string, area: number } {
 
 //只读属性
 // 一些对象只能在对象刚刚创建的时候修改其值，你可以在属性名前用 readonly来指定只读属性
-interface Point {
+interface Point3 {
     readonly x: number,
     readonly y: number
 }
 
-let p1: Point = {x:1, y:2};
+let p1: Point3 = {x:1, y:2};
 
 
 // ReadonlyArray<T>

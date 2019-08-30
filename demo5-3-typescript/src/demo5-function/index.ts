@@ -53,10 +53,34 @@ let buildName4 : (firstName:string, ...restOfName: string[]) => string =
             return () => {
                 let pickedCard = Math.floor(Math.random() * 52);
                 let pickedSuit = Math.floor(pickedCard / 13);
-    
                 return {suit: this.suits[pickedSuit], card: pickedCard % 13};
             }
         }
     }
     let cardPicker = deck.createCardPicker();
     let pickedCard = cardPicker();
+
+
+    // this 参数
+    interface Card {
+        suit: string,
+        card: number
+    }
+    // 这样返回的函数的 this值 会绑定到 this上
+    interface Deck {
+        suits: string[],
+        cards: number[];
+        createCardPicker(this: Deck): () => Card;
+    }
+    let deck22: Deck = {
+        suits: ["hearts", "spades", "clubs", "diamonds"],
+        cards:Array[52],
+        createCardPicker:function (this: Deck) {
+            return () => {
+                let pickedCard = Math.floor(Math.random() * 52);
+                let pickedSuit = Math.floor(pickedCard / 13);
+    
+                return {suit: this.suits[pickedSuit], card: pickedCard % 13};
+            }
+        }
+    }
