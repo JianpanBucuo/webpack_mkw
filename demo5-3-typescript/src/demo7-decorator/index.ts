@@ -70,3 +70,5 @@ class Hello2{
     return 'static method';
   }
 }
+var xa = new Hello2();
+console.log(xa.age  );

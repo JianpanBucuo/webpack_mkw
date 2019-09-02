@@ -1,7 +1,7 @@
 const path = require('path');
 const webpack = require('webpack');
 module.exports = {
-    entry: "./src/demo7-decorator/index.ts",
+    entry: "./src/demo7-decorator/index2-getSet.ts",
     module:{
         rules:[
             {
