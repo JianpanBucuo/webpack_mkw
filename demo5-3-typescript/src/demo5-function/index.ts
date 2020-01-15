@@ -60,7 +60,9 @@ let buildName4 : (firstName:string, ...restOfName: string[]) => string =
     let cardPicker = deck.createCardPicker();
     let pickedCard = cardPicker();
 
-
+// function axxxx() {
+//     return true;
+// }
     // this 参数
     interface Card {
         suit: string,

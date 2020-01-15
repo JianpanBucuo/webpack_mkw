@@ -38,5 +38,5 @@ function parse(type) {
         console.log('parseConf[index]:', type);
     };
 }
-let modal = new Modal();
-console.log(modal.addOne('10')); // 11
+// let modal = new Modal();
+// console.log(modal.addOne('10')); // 11
