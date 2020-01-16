@@ -61,7 +61,7 @@ module.exports = {
                 use:[{
                         loader:  'replace.loader',
                         options:{
-                            name:'1111'
+                            name:'2222'
                         }
                     },
                     {
