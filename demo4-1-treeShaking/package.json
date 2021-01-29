@@ -1,10 +1,10 @@
 {
   "name": "webpack_2019_5_9_start_learning_mkw",
-  "sideEffect": ["*.css"],
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "private": true,
+  "sideEffects": ["*.css"],
   "scripts": {
     "build": "webpack ./src/index.js  --config webpack.config.js",
     "start": "webpack-dev-server",

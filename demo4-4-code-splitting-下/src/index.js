@@ -4,18 +4,19 @@
 // var div = document.createElement('div');
 // div.innerHTML = _.join(['a','v','c']);
 // document.body.appendChild(ele);
+import $ from 'jquery'
 
-
+console.log($)
 //异步模块引入
 function getComponent () {
-      return import('lodash').then(({ default: _}) => {
-            //异步加载lodash
-            var div = document.createElement('div');
-            div.innerHTML = _.join(['a','v','c']);
-            // document.body.appendChild(div);  
-            return div;          
-      })
-  }
+    return import('lodash').then(({ default: _ }) => {
+        //异步加载lodash
+        var div = document.createElement('div');
+        div.innerHTML = _.join(['a', 'v', 'c']);
+        // document.body.appendChild(div);  
+        return div;
+    })
+}
 getComponent().then((ele) => {
-      document.body.appendChild(ele);
+    document.body.appendChild(ele);
 });

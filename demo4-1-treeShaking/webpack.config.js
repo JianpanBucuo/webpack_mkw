@@ -4,12 +4,11 @@ const cleanWebpackPlugin = require('clean-webpack-plugin');
 const webpack = require('webpack');
 module.exports = {
     // entry:'./src/index.js',
-    mode: 'development', // production
+    mode: 'production', // production
     devtool:'cheap-module-source-map',
     entry:{
         // 规定打包的入口文件文件名
         main: './src/index.js'
- 
     },
     output: {
         // 通过设置占位符来配置 根据entry设置的 输出文件的名字 

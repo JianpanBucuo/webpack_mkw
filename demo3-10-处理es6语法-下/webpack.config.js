@@ -68,24 +68,24 @@ module.exports = {
                     test: /\.js$/, 
                     exclude: /node_modules/, 
                     loader: 'babel-loader',
-                    // options:{
-                    //     //  presets:['@babel/preset-env']
-                    //     presets:[['@babel/preset-env',{
-                    //         useBuiltIns:'usage',  //不是把所有语法的转义加进来，是根据业务代码里用到了什么，就加什么
-                    //         targets: { //查看转义范围
-                    //             edge: "17",
-                    //             firefox: "60",
-                    //             chrome: "67",
-                    //             safari: "11.1",
-                    //           }
-                    //     }]],
-                    //     "plugins": [["@babel/plugin-transform-runtime",{
-                    //         "corejs": 2,
-                    //         "helpers": true,
-                    //         "regenerator": true,
-                    //         "useESModules": false
-                    //     }]]
-                    // } 
+                    options:{
+                        //  presets:['@babel/preset-env']
+                        presets:[['@babel/preset-env',{
+                            useBuiltIns:'usage',  //不是把所有语法的转义加进来，是根据业务代码里用到了什么，就加什么
+                            targets: { //查看转义范围
+                                edge: "17",
+                                firefox: "60",
+                                chrome: "67",
+                                safari: "11.1",
+                              }
+                        }]],
+                        "plugins": [["@babel/plugin-transform-runtime",{
+                            "corejs": 2,
+                            "helpers": true,
+                            "regenerator": true,
+                            "useESModules": false
+                        }]]
+                    } 
             },
 
 
