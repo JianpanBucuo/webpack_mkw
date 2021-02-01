@@ -4,9 +4,9 @@
 // var div = document.createElement('div');
 // div.innerHTML = _.join(['a','v','c']);
 // document.body.appendChild(ele);
-import $ from 'jquery'
+// import $ from 'jquery'
 
-console.log($)
+// console.log($)
 //异步模块引入
 function getComponent () {
     return import('lodash').then(({ default: _ }) => {
@@ -17,6 +17,17 @@ function getComponent () {
         return div;
     })
 }
-getComponent().then((ele) => {
-    document.body.appendChild(ele);
-});
+// function getComponent () {
+//     document.body.appendChild(div);  
+//     return div;
+// }
+var body = document.getElementsByTagName('body')
+body[0].addEventListener('onclick',function () {
+    getComponent().then((ele) => {
+        document.body.appendChild(ele);
+    });
+})
+// $('body').on('click',function(){
+   
+//     // getComponent()
+// })

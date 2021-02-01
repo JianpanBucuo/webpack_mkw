@@ -15,3 +15,6 @@ Split Chunks Plugin
 
 console.log(_.join(['a','v','c']));
 console.log($('body').addClass('add-body'));
+function a () {
+    return 
+}
